@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 30% 4%;
+    --foreground: 40 20% 95%;
+    --card: 220 40% 8%;
+    --card-foreground: 40 20% 95%;
+    --popover: 220 40% 8%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 32 100% 50%;
+    --primary-foreground: 220 30% 4%;
+    --secondary: 220 40% 12%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 32 100% 50%;
+    --accent-foreground: 220 30% 4%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 20% 20%;
+    --input: 220 20% 18%;
+    --ring: 32 100% 50%;
+    --radius: 0.625rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-darker text-brand-cream antialiased;
+    font-family: 'Inter', 'Tajawal', 'Noto Sans Arabic', system-ui, sans-serif;
+    direction: rtl;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Tajawal', system-ui, sans-serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-panel {
+    @apply backdrop-blur-md bg-black/40 border border-white/5;
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 30px rgba(255, 138, 0, 0.15);
+  }
+
+  .gold-border {
+    @apply border border-brand-gold/30;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-brand-gold to-brand-goldLight bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply bg-brand-gold text-brand-darker font-semibold px-6 py-3 rounded-lg 
+           transition-all duration-300 hover:bg-brand-goldLight hover:shadow-lg
+           hover:shadow-brand-gold/20 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border border-brand-gold/50 text-brand-gold font-semibold px-6 py-3 rounded-lg 
+           transition-all duration-300 hover:bg-brand-gold/10 hover:border-brand-gold
+           active:scale-95;
+  }
+
+  .section-padding {
+    @apply px-6 sm:px-8 lg:px-16 xl:px-24;
+  }
+
+  .heading-xl {
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl sm:text-3xl font-semibold leading-snug;
+  }
+
+  .body-lg {
+    @apply text-base sm:text-lg text-brand-gray leading-relaxed;
+  }
+
+  .body-md {
+    @apply text-sm sm:text-base text-brand-gray leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .rtl-grid {
+    direction: rtl;
+  }
+
+  .ltr-grid {
+    direction: ltr;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b1e3c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #102a56;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff8a00;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 138, 0, 0.3);
+  color: #F4F2EE;
+}
